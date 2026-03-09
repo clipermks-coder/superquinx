@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quin X - Pengingat Ganti Oli, Racikan & Ciri-ciri Kerusakan Motor</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 30px 0;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .logo-sub {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .tagline {
+            color: #bbdefb;
+            font-size: 1rem;
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .nav-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn.active, .nav-btn:hover {
+            background-color: #5c6bc0;
+        }
+        
+        .content-section {
+            display: none;
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        h2 {
+            color: #1a237e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8eaf6;
+        }
+        
+        h3 {
+            color: #3949ab;
+            margin: 25px 0 15px 0;
+        }
+        
+        .oil-reminder-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input, select, textarea {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .interval-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 5px;
+        }
+        
+        .interval-btn {
+            padding: 12px 8px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .interval-btn.selected {
+            border-color: #3949ab;
+            background-color: #e8eaf6;
+            font-weight: bold;
+        }
+        
+        .interval-btn i {
+            display: block;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: #3949ab;
+        }
+        
+        button {
+            background-color: #3949ab;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #303f9f;
+        }
+        
+        .btn-secondary {
+            background-color: #757575;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #616161;
+        }
+        
+        .btn-warning {
+            background-color: #ff9800;
+        }
+        
+        .btn-warning:hover {
+            background-color: #f57c00;
+        }
+        
+        .btn-success {
+            background-color: #4caf50;
+        }
+        
+        .btn-success:hover {
+            background-color: #388e3c;
+        }
+        
+        .btn-danger {
+            background-color: #f44336;
+        }
+        
+        .btn-danger:hover {
+            background-color: #d32f2f;
+        }
+        
+        .reminders-list {
+            margin-top: 30px;
+        }
+        
+        .reminder-card {
+            background-color: #f9f9f9;
+            border-left: 5px solid #3949ab;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            transition: all 0.3s ease;
+        }
+        
+        .reminder-card.due-soon {
+            border-left-color: #ff9800;
+            background-color: #fff8e1;
+        }
+        
+        .reminder-card.overdue {
+            border-left-color: #f44336;
+            background-color: #ffebee;
+        }
+        
+        .reminder-info h3 {
+            color: #1a237e;
+            margin-bottom: 5px;
+        }
+        
+        .reminder-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+        }
+        
+        .reminder-countdown {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .countdown-normal {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .countdown-warning {
+            background-color: #fff8e1;
+            color: #f57c00;
+        }
+        
+        .countdown-danger {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
+        .reminder-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .reminder-actions button {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .kirian-preset, .problem-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .preset-card, .category-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .preset-card:hover, .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .preset-header, .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .preset-type, .category-type {
+            background-color: #e8eaf6;
+            color: #3949ab;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .preset-specs, .problem-list {
+            margin-bottom: 15px;
+        }
+        
+        .spec-item, .problem-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .recommendation {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .warning {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .danger {
+            background-color: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #f44336;
+        }
+        
+        .custom-kirian-form, .diagnosis-form {
+            background-color: #f0f4ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .result-box {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .recommendation-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .recommendation-header i {
+            color: #4caf50;
+            font-size: 1.5rem;
+        }
+        
+        .characteristics-box {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .characteristics-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .characteristics-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .characteristics-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ffcc80;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .characteristics-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .characteristics-list li i {
+            color: #ff9800;
+            margin-top: 3px;
+        }
+        
+        .solution-steps {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .solution-steps h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .test-method {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .test-method h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .summary-box {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .summary-item {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .summary-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .summary-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .info-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .info-box i {
+            color: #2196f3;
+            margin-right: 10px;
+        }
+        
+        .symptom-checkboxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .symptom-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .symptom-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .severity-slider {
+            width: 100%;
+            margin: 15px 0;
+        }
+        
+        .severity-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .diagnosis-result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fffde7;
+            border-left: 5px solid #ffd600;
+        }
+        
+        .diagnosis-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            background-color: white;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .diagnosis-item.severe {
+            border-left-color: #f44336;
+            background-color: #ffebee;
+        }
+        
+        .diagnosis-item.moderate {
+            border-left-color: #ff9800;
+            background-color: #fff8e1;
+        }
+        
+        .diagnosis-item.minor {
+            border-left-color: #4caf50;
+            background-color: #e8f5e9;
+        }
+        
+        .diagnosis-probability {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .probability-high {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
+        .probability-medium {
+            background-color: #fff8e1;
+            color: #f57c00;
+        }
+        
+        .probability-low {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .quick-search {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .search-btn {
+            padding: 10px 15px;
+            background-color: #e3f2fd;
+            border: 2px solid #bbdefb;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .search-btn:hover, .search-btn.active {
+            background-color: #bbdefb;
+            border-color: #64b5f6;
+        }
+        
+        .component-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .component-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .component-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8eaf6;
+        }
+        
+        .component-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #e8eaf6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3949ab;
+            font-size: 1.2rem;
+        }
+        
+        .component-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a237e;
+        }
+        
+        .common-problems {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .common-problems strong {
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .main-nav {
+                justify-content: center;
+            }
+            
+            .reminder-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .reminder-actions {
+                margin-top: 15px;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+            }
+            
+            .summary-box {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .symptom-checkboxes {
+                grid-template-columns: 1fr;
+            }
+            
+            .component-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-search {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-motorcycle"></i>
+                    <div class="logo-text">
+                        <div class="logo-main">QUIN X</div>
+                        <div class="tagline">Pengingat Ganti Oli, Racikan & Ciri-ciri Kerusakan Motor</div>
+                    </div>
+                </div>
+                <div class="main-nav">
+                    <button class="nav-btn active" data-section="oil-reminder">
+                        <i class="fas fa-oil-can"></i> Ganti Oli
+                    </button>
+                    <button class="nav-btn" data-section="kirian-mixer">
+                        <i class="fas fa-sliders-h"></i> Racikan Kirian
+                    </button>
+                    <button class="nav-btn" data-section="motor-characteristics">
+                        <i class="fas fa-stethoscope"></i> Ciri-ciri Kerusakan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Section Pengingat Ganti Oli -->
+        <section id="oil-reminder" class="content-section active">
+            <h2><i class="fas fa-calendar-alt"></i> Pengingat Ganti Oli Motor</h2>
+            
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>Cara kerja:</strong> Pilih interval berapa bulan sekali ingin ganti oli. Sistem akan menghitung sisa hari menuju ganti oli berikutnya.
+            </div>
+            
+            <div id="reminder-summary" class="summary-box" style="display:none;">
+                <!-- Ringkasan pengingat akan dimuat di sini -->
+            </div>
+            
+            <div class="oil-reminder-form">
+                <div class="form-group">
+                    <label for="motor-brand">Merek Motor</label>
+                    <input type="text" id="motor-brand" placeholder="Contoh: Honda, Yamaha, Suzuki">
+                </div>
+                <div class="form-group">
+                    <label for="motor-model">Model Motor</label>
+                    <input type="text" id="motor-model" placeholder="Contoh: Beat, Mio, NMax">
+                </div>
+                <div class="form-group">
+                    <label for="last-oil-change">Terakhir Ganti Oli</label>
+                    <input type="date" id="last-oil-change">
+                </div>
+                <div class="form-group">
+                    <label for="last-odometer">KM Terakhir Saat Ganti Oli</label>
+                    <input type="number" id="last-odometer" placeholder="Dalam kilometer">
+                </div>
+                <div class="form-group">
+                    <label>Ganti Oli Setiap</label>
+                    <div class="interval-options">
+                        <div class="interval-btn" data-months="1">
+                            <i class="fas fa-calendar-week"></i>
+                            <span>1 Bulan</span>
+                        </div>
+                        <div class="interval-btn" data-months="1.5">
+                            <i class="fas fa-calendar-week"></i>
+                            <span>1.5 Bulan</span>
+                        </div>
+                        <div class="interval-btn selected" data-months="2">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2 Bulan</span>
+                        </div>
+                        <div class="interval-btn" data-months="3">
+                            <i class="fas fa-calendar"></i>
+                            <span>3 Bulan</span>
+                        </div>
+                        <div class="interval-btn" data-months="4">
+                            <i class="fas fa-calendar"></i>
+                            <span>4 Bulan</span>
+                        </div>
+                        <div class="interval-btn" data-months="5">
+                            <i class="fas fa-calendar"></i>
+                            <span>5 Bulan</span>
+                        </div>
+                        <div class="interval-btn" data-months="6">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>6 Bulan</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="interval-months" value="2">
+                </div>
+                <div class="form-group">
+                    <label for="usage-type">Jenis Penggunaan (Opsional)</label>
+                    <select id="usage-type">
+                        <option value="normal" selected>Normal</option>
+                        <option value="heavy">Penggunaan Berat</option>
+                        <option value="light">Penggunaan Ringan</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button id="add-reminder" class="btn-primary">
+                <i class="fas fa-bell"></i> Tambah Pengingat
+            </button>
+            
+            <div class="reminders-list">
+                <h3>Pengingat Aktif</h3>
+                <div id="reminders-container">
+                    <!-- Daftar pengingat akan muncul di sini -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Racikan Kirian Motor -->
+        <section id="kirian-mixer" class="content-section">
+            <h2><i class="fas fa-cogs"></i> Racikan Kirian Motor</h2>
+            <p>Pilih racikan kirian preset atau buat custom racikan sesuai kebutuhan Anda.</p>
+            
+            <h3>Racikan Preset</h3>
+            <div class="kirian-preset">
+                <div class="preset-card">
+                    <div class="preset-header">
+                        <h4>Haria Loler</h4>
+                        <span class="preset-type">Daily Use</span>
+                    </div>
+                    <div class="preset-specs">
+                        <div class="spec-item">
+                            <span>Loler:</span>
+                            <span><strong>11 gram</strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Rumah Loler:</span>
+                            <span><strong>13.5 drajat</strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Centri:</span>
+                            <span><strong>1100 RPM</strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <span>CVT:</span>
+                            <span><strong>1500 RPM</strong></span>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <strong><i class="fas fa-lightbulb"></i> Rekomendasi:</strong> Cocok untuk harian dengan top speed tinggi, akselerasi responsif di tanjakan.
+                    </div>
+                    <button class="btn-primary use-preset" data-preset="haria-loler">
+                        <i class="fas fa-check"></i> Gunakan Racikan Ini
+                    </button>
+                </div>
+                
+                <div class="preset-card">
+                    <div class="preset-header">
+                        <h4>Harian Gerung</h4>
+                        <span class="preset-type">Sporty Daily</span>
+                    </div>
+                    <div class="preset-specs">
+                        <div class="spec-item">
+                            <span>Loler:</span>
+                            <span><strong>8 gram</strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Rumah Loler:</span>
+                            <span><strong>13.8 drajat</strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Centri:</span>
+                            <span><strong>1100 RPM</strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <span>CVT:</span>
+                            <span><strong>1500 RPM</strong></span>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <strong><i class="fas fa-lightbulb"></i> Rekomendasi:</strong> Untuk harian yang lebih sporty, akselerasi cepat dengan RPM yang lebih tinggi.
+                    </div>
+                    <button class="btn-primary use-preset" data-preset="harian-gerung">
+                        <i class="fas fa-check"></i> Gunakan Racikan Ini
+                    </button>
+                </div>
+                
+                <div class="preset-card">
+                    <div class="preset-header">
+                        <h4>Harian Jengat</h4>
+                        <span class="preset-type">Economy Daily</span>
+                    </div>
+                    <div class="preset-specs">
+                        <div class="spec-item">
+                            <span>Loler:</span>
+                            <span><strong>9 gram</strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Centri:</span>
+                            <span><strong>1000 RPM</strong></span>
+                        </div>
+                        <div class="spec-item">
+                            <span>CVT:</span>
+                            <span><strong>1000 RPM</strong></span>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <strong><i class="fas fa-lightbulb"></i> Rekomendasi:</strong> Untuk penggunaan harian irit dengan akselerasi halus, cocok untuk jalan perkotaan.
+                    </div>
+                    <button class="btn-primary use-preset" data-preset="harian-jengat">
+                        <i class="fas fa-check"></i> Gunakan Racikan Ini
+                    </button>
+                </div>
+            </div>
+            
+            <h3>Racikan Custom</h3>
+            <div class="custom-kirian-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="custom-loler">Berat Loler (gram)</label>
+                        <input type="number" id="custom-loler" placeholder="Contoh: 10" min="5" max="20" step="0.5">
+                    </div>
+                    <div class="form-group">
+                        <label for="custom-rumah-loler">Rumah Loler (drajat)</label>
+                        <input type="number" id="custom-rumah-loler" placeholder="Contoh: 13.5" min="10" max="20" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="custom-centri">Centri (RPM)</label>
+                        <input type="number" id="custom-centri" placeholder="Contoh: 1100" min="800" max="2000">
+                    </div>
+                    <div class="form-group">
+                        <label for="custom-cvt">CVT (RPM)</label>
+                        <input type="number" id="custom-cvt" placeholder="Contoh: 1500" min="800" max="2000">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="riding-style">Gaya Berkendara</label>
+                        <select id="riding-style">
+                            <option value="daily">Harian (Daily Use)</option>
+                            <option value="sport">Sporty/Balap</option>
+                            <option value="eco">Eco/Irit BBM</option>
+                            <option value="offroad">Offroad/Medan Berat</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="kirian-motor-type">Jenis Motor</label>
+                        <select id="kirian-motor-type">
+                            <option value="matic">Matic</option>
+                            <option value="sport">Sport</option>
+                            <option value="bebek">Bebek</option>
+                            <option value="maxi">Maxi/Skutik Besar</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="calculate-custom" class="btn-primary">
+                    <i class="fas fa-calculator"></i> Hitung & Rekomendasi
+                </button>
+            </div>
+            
+            <div id="custom-result" class="result-box" style="display:none;">
+                <div class="recommendation-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Hasil Racikan Custom Anda</h3>
+                </div>
+                <div class="preset-specs">
+                    <div class="spec-item">
+                        <span>Loler:</span>
+                        <span id="result-loler"><strong>0 gram</strong></span>
+                    </div>
+                    <div class="spec-item">
+                        <span>Rumah Loler:</span>
+                        <span id="result-rumah-loler"><strong>0 drajat</strong></span>
+                    </div>
+                    <div class="spec-item">
+                        <span>Centri:</span>
+                        <span id="result-centri"><strong>0 RPM</strong></span>
+                    </div>
+                    <div class="spec-item">
+                        <span>CVT:</span>
+                        <span id="result-cvt"><strong>0 RPM</strong></span>
+                    </div>
+                </div>
+                <div id="custom-recommendation" class="recommendation">
+                    <strong><i class="fas fa-lightbulb"></i> Rekomendasi:</strong> 
+                    <span id="recommendation-text">Racikan ini cocok untuk...</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Ciri-ciri Kerusakan Motor -->
+        <section id="motor-characteristics" class="content-section">
+            <h2><i class="fas fa-stethoscope"></i> Ciri-ciri Kerusakan Komponen Motor</h2>
+            
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>Panduan Lengkap:</strong> Pelajari ciri-ciri kerusakan setiap komponen motor. Cocok untuk pemula yang ingin belajar otomotif atau pemilik motor yang ingin tahu gejala kerusakan.
+            </div>
+            
+            <!-- Quick Search Komponen -->
+            <div class="quick-search">
+                <button class="search-btn active" data-component="all">
+                    <i class="fas fa-list"></i> Semua Komponen
+                </button>
+                <button class="search-btn" data-component="sensor">
+                    <i class="fas fa-microchip"></i> Sensor & Elektrik
+                </button>
+                <button class="search-btn" data-component="mesin">
+                    <i class="fas fa-cogs"></i> Mesin
+                </button>
+                <button class="search-btn" data-component="transmisi">
+                    <i class="fas fa-exchange-alt"></i> Transmisi
+                </button>
+                <button class="search-btn" data-component="bahan_bakar">
+                    <i class="fas fa-gas-pump"></i> Sistem Bahan Bakar
+                </button>
+                <button class="search-btn" data-component="kelistrikan">
+                    <i class="fas fa-bolt"></i> Kelistrikan
+                </button>
+            </div>
+            
+            <!-- Daftar Komponen -->
+            <div id="component-list" class="component-list">
+                <!-- Komponen akan dimuat di sini -->
+            </div>
+            
+            <!-- Detail Komponen (akan muncul saat diklik) -->
+            <div id="component-detail" style="display: none;">
+                <!-- Detail komponen akan dimuat di sini -->
+            </div>
+            
+            <!-- Tips Umum -->
+            <div class="recommendation">
+                <h4><i class="fas fa-lightbulb"></i> Tips Mengidentifikasi Kerusakan Motor</h4>
+                <ol>
+                    <li><strong>Dengarkan suara:</strong> Setiap komponen rusak punya suara khas</li>
+                    <li><strong>Perhatikan gejala:</strong> Catat kapan gejala muncul (saat dingin/panas, RPM rendah/tinggi)</li>
+                    <li><strong>Cek visual:</strong> Periksa kebocoran, kerusakan fisik, kabel terkelupas</li>
+                    <li><strong>Test sederhana:</strong> Lakukan test seperti di panduan sebelum bawa ke bengkel</li>
+                    <li><strong>Jangan tunda:</strong> Kerusakan kecil bisa jadi besar jika diabaikan</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Quin X &copy; 2023 - Panduan Lengkap Ciri-ciri Kerusakan Motor</p>
+            <p>Disclaimer: Panduan untuk edukasi. Untuk perbaikan serius, konsultasi dengan mekanik profesional.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigasi antar section
+        document.querySelectorAll('.nav-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+                
+                this.classList.add('active');
+                const sectionId = this.getAttribute('data-section');
+                document.getElementById(sectionId).classList.add('active');
+                
+                // Jika masuk ke section ciri-ciri, load komponen
+                if (sectionId === 'motor-characteristics') {
+                    loadAllComponents();
+                }
+            });
+        });
+        
+        // Data penyimpanan lokal untuk pengingat oli
+        let oilReminders = JSON.parse(localStorage.getItem('oilReminders')) || [];
+        
+        // Pilih interval bulan
+        document.querySelectorAll('.interval-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.interval-btn').forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+                const months = this.getAttribute('data-months');
+                document.getElementById('interval-months').value = months;
+            });
+        });
+        
+        // ========== FUNGSI PENGINGAT OLI ==========
+        
+        // Fungsi untuk menghitung tanggal berikutnya berdasarkan interval bulan
+        function calculateNextDate(lastDate, months) {
+            const nextDate = new Date(lastDate);
+            
+            if (months % 1 !== 0) {
+                const days = months * 30.44;
+                nextDate.setDate(nextDate.getDate() + Math.round(days));
+            } else {
+                nextDate.setMonth(nextDate.getMonth() + parseInt(months));
+            }
+            
+            return nextDate;
+        }
+        
+        // Fungsi untuk menghitung sisa hari
+        function calculateDaysLeft(nextDate) {
+            const today = new Date();
+            const timeDiff = nextDate.getTime() - today.getTime();
+            const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            return daysLeft;
+        }
+        
+        // Fungsi untuk menampilkan pengingat
+        function displayReminders() {
+            const container = document.getElementById('reminders-container');
+            container.innerHTML = '';
+            
+            if (oilReminders.length === 0) {
+                container.innerHTML = '<div class="reminder-card"><p>Belum ada pengingat. Tambahkan pengingat pertama Anda!</p></div>';
+                displayReminderSummary();
+                return;
+            }
+            
+            oilReminders.sort((a, b) => {
+                const lastDateA = new Date(a.lastOilChange);
+                const nextDateA = calculateNextDate(lastDateA, a.intervalMonths);
+                const daysLeftA = calculateDaysLeft(nextDateA);
+                
+                const lastDateB = new Date(b.lastOilChange);
+                const nextDateB = calculateNextDate(lastDateB, b.intervalMonths);
+                const daysLeftB = calculateDaysLeft(nextDateB);
+                
+                return daysLeftA - daysLeftB;
+            });
+            
+            oilReminders.forEach((reminder, index) => {
+                const lastDate = new Date(reminder.lastOilChange);
+                const nextDate = calculateNextDate(lastDate, reminder.intervalMonths);
+                const daysLeft = calculateDaysLeft(nextDate);
+                const countdownClass = getCountdownClass(daysLeft);
+                const reminderCardClass = getReminderCardClass(daysLeft);
+                
+                let intervalText = formatMonth(reminder.intervalMonths);
+                
+                const reminderCard = document.createElement('div');
+                reminderCard.className = `reminder-card ${reminderCardClass}`;
+                reminderCard.innerHTML = `
+                    <div class="reminder-info">
+                        <h3>${reminder.brand} ${reminder.model}</h3>
+                        <p class="reminder-date"><strong>Terakhir ganti oli:</strong> ${formatDate(lastDate)}</p>
+                        <p class="reminder-date"><strong>KM terakhir:</strong> ${reminder.lastOdometer} km</p>
+                        <p class="reminder-date"><strong>Interval:</strong> Ganti oli setiap ${intervalText}</p>
+                        <p class="reminder-date"><strong>Ganti oli berikutnya:</strong> ${formatDate(nextDate)}</p>
+                        <div class="reminder-countdown ${countdownClass}">
+                            <i class="fas fa-clock"></i> ${daysLeft > 0 ? `${daysLeft} hari lagi` : 'Terlambat ' + Math.abs(daysLeft) + ' hari'}
+                        </div>
+                    </div>
+                    <div class="reminder-actions">
+                        <button class="btn-success mark-done" data-index="${index}">
+                            <i class="fas fa-check"></i> Sudah Ganti
+                        </button>
+                        <button class="btn-warning edit-reminder" data-index="${index}">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn-secondary delete-reminder" data-index="${index}">
+                            <i class="fas fa-trash"></i> Hapus
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(reminderCard);
+            });
+            
+            // Tambah event listener
+            document.querySelectorAll('.mark-done').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = this.getAttribute('data-index');
+                    markReminderDone(index);
+                });
+            });
+            
+            document.querySelectorAll('.edit-reminder').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = this.getAttribute('data-index');
+                    editReminder(index);
+                });
+            });
+            
+            document.querySelectorAll('.delete-reminder').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = this.getAttribute('data-index');
+                    deleteReminder(index);
+                });
+            });
+            
+            displayReminderSummary();
+        }
+        
+        // Format tanggal
+        function formatDate(date) {
+            return date.toLocaleDateString('id-ID', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+        }
+        
+        // Format bulan untuk tampilan
+        function formatMonth(months) {
+            if (months === 1) return '1 bulan';
+            if (months === 1.5) return '1.5 bulan';
+            if (months === 2) return '2 bulan';
+            if (months === 3) return '3 bulan';
+            if (months === 4) return '4 bulan';
+            if (months === 5) return '5 bulan';
+            if (months === 6) return '6 bulan';
+            return `${months} bulan`;
+        }
+        
+        // Fungsi helper untuk pengingat
+        function getCountdownClass(daysLeft) {
+            if (daysLeft > 15) return "countdown-normal";
+            if (daysLeft > 5) return "countdown-warning";
+            return "countdown-danger";
+        }
+        
+        function getReminderCardClass(daysLeft) {
+            if (daysLeft > 15) return "";
+            if (daysLeft > 5) return "due-soon";
+            if (daysLeft > 0) return "due-soon";
+            return "overdue";
+        }
+        
+        function displayReminderSummary() {
+            const summaryBox = document.getElementById('reminder-summary');
+            if (oilReminders.length === 0) {
+                summaryBox.style.display = 'none';
+                return;
+            }
+            
+            let totalReminders = oilReminders.length;
+            let dueSoonCount = 0;
+            let overdueCount = 0;
+            
+            oilReminders.forEach(reminder => {
+                const lastDate = new Date(reminder.lastOilChange);
+                const nextDate = calculateNextDate(lastDate, reminder.intervalMonths);
+                const daysLeft = calculateDaysLeft(nextDate);
+                
+                if (daysLeft <= 15 && daysLeft > 0) dueSoonCount++;
+                if (daysLeft <= 0) overdueCount++;
+            });
+            
+            summaryBox.innerHTML = `
+                <div class="summary-item">
+                    <div class="summary-value">${totalReminders}</div>
+                    <div class="summary-label">Total Pengingat</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-value ${dueSoonCount > 0 ? 'countdown-warning' : ''}">${dueSoonCount}</div>
+                    <div class="summary-label">Segera Jatuh Tempo</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-value ${overdueCount > 0 ? 'countdown-danger' : ''}">${overdueCount}</div>
+                    <div class="summary-label">Terlambat</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-value">${totalReminders - dueSoonCount - overdueCount}</div>
+                    <div class="summary-label">Aktif</div>
+                </div>
+            `;
+            
+            summaryBox.style.display = 'flex';
+        }
+        
+        // ========== FUNGSI CIRI-CIRI KERUSAKAN ==========
+        
+        // Database komponen motor dengan CIRI-CIRI kerusakan
+        const motorComponents = {
+            // SENSOR & ELEKTRIK
+            sensor_tps: {
+                name: "Sensor TPS (Throttle Position Sensor)",
+                category: "sensor",
+                icon: "fas fa-sliders-h",
+                function: "Mengukur posisi throttle/gas untuk menentukan jumlah bahan bakar",
+                commonProblems: "Sering error di motor injeksi 2010-2018",
+                
+                characteristics: [
+                    "Motor brebet/ngempos saat tarik gas awal (0-30% throttle)",
+                    "Respons gas lambat, seperti delay 1-2 detik",
+                    "Putaran idle naik-turun tidak stabil (1500-2500rpm)",
+                    "Tenaga tidak linear - kadang kuat kadang lemah",
+                    "Check engine light menyala (jika ada fitur)",
+                    "Gas seperti tersendat-sendat di RPM rendah",
+                    "Saat gas dibuka cepat, motor seperti mau mati"
+                ],
+                
+                testMethod: `CARA TEST SENSOR TPS:
+1. Gunakan multimeter pada mode voltage DC
+2. Ukur pin tengah dan ground saat mesin hidup
+3. Normal: 0.5-1V saat idle, 4-4.5V saat gas penuh
+4. Jika tidak stabil/tidak berubah = TPS rusak`,
+                
+                solution: "Kalibrasi atau ganti sensor TPS, bersihkan throttle body",
+                cost: "Rp 150.000 - Rp 400.000",
+                severity: "Moderate"
+            },
+            
+            sensor_iat: {
+                name: "Sensor IAT (Intake Air Temperature)",
+                category: "sensor",
+                icon: "fas fa-thermometer-half",
+                function: "Mengukur suhu udara masuk untuk koreksi bahan bakar",
+                commonProblems: "Sering kotor atau rusak karena debu",
+                
+                characteristics: [
+                    "BBM lebih boros dari biasanya (irit turun 10-30%)",
+                    "Tenaga berkurang saat mesin sudah panas",
+                    "Asap knalpot hitam (terlalu kaya bensin)",
+                    "Idle kasar saat mesin panas",
+                    "Performa dingin vs panas beda jauh",
+                    "Kadang brebet saat akselerasi tiba-tiba",
+                    "Motor seperti 'ngelitik' (knocking) saat panas"
+                ],
+                
+                testMethod: `CARA TEST SENSOR IAT:
+1. Lepas sensor dari intake
+2. Ukur resistance dengan multimeter
+3. Normal: 2-3k ohm saat suhu ruang
+4. Semprot cooler, resistance naik = bagus
+5. Tidak berubah = rusak`,
+                
+                solution: "Bersihkan atau ganti sensor IAT",
+                cost: "Rp 80.000 - Rp 250.000",
+                severity: "Minor"
+            },
+            
+            koil_pengapian: {
+                name: "Koil Pengapian (Ignition Coil)",
+                category: "sensor",
+                icon: "fas fa-bolt",
+                function: "Menaikkan tegangan aki 12V menjadi 20.000V untuk busi",
+                commonProblems: "Sering rusak di motor tua atau setelah kehujanan",
+                
+                characteristics: [
+                    "Motor brebet/macet saat digas (putus-nyambung)",
+                    "Tenaga turun drastis, terutama saat beban berat",
+                    "Starter susah hidup, terutama saat mesin panas",
+                    "Suara mesin kasar tidak smooth",
+                    "Busi sering basah/mati (tidak ada spark)",
+                    "Motor bisa tiba-tiba mati saat jalan",
+                    "Getaran berlebihan saat idle"
+                ],
+                
+                testMethod: `CARA TEST KOIL:
+1. Lepas busi, tempelkan ke mesin
+2. Crank starter - lihat spark di busi
+3. Spark harus biru kuat (bukan merah lemah)
+4. Test resistance: primary 0.5-2 ohm, secondary 5-15k ohm
+5. Di luar range = koil rusak`,
+                
+                solution: "Ganti koil pengapian dan cek kabel busi",
+                cost: "Rp 200.000 - Rp 500.000",
+                severity: "Moderate"
+            },
+            
+            // MESIN
+            ring_piston: {
+                name: "Ring Piston",
+                category: "mesin",
+                icon: "fas fa-cog",
+                function: "Menyekat ruang bakar dan mencegah oli masuk",
+                commonProblems: "Aus setelah 50.000-100.000km atau overheat",
+                
+                characteristics: [
+                    "Oli mesin cepat habis (500ml-1L per minggu)",
+                    "Asap knalpot putih/biru tebal, terutama saat gas besar",
+                    "Tenaga turun drastis (bisa sampai 50%)",
+                    "Kompresi mesin rendah (bisa test dengan kompresi meter)",
+                    "Busi cepat kotor/hitam karena oli",
+                    "Suara mesin kasar seperti ketukan",
+                    "Boros BBM karena pembakaran tidak sempurna"
+                ],
+                
+                testMethod: `CARA TEST RING PISTON:
+1. KOMPRESI TEST: Normal 10-12 bar, jika <8 bar = ring aus
+2. LEAK DOWN TEST: lebih akurat dari kompresi test
+3. CEK ASAP: asap putih/biru saat gas besar = oli terbakar
+4. CEK BUSI: basah oli = oli masuk ruang bakar`,
+                
+                solution: "Turun mesin, ganti ring piston, honing silinder",
+                cost: "Rp 800.000 - Rp 2.000.000",
+                severity: "Severe"
+            },
+            
+            klep_mesin: {
+                name: "Klep (Valve) Mesin",
+                category: "mesin",
+                icon: "fas fa-filter",
+                function: "Mengatur masuknya udara dan keluarnya gas buang",
+                commonProblems: "Aus, pembakaran tidak sempurna, jarang disetel",
+                
+                characteristics: [
+                    "Suara 'tek tek tek' dari kepala silinder saat idle",
+                    "Tenaga berkurang terutama di RPM tinggi",
+                    "Starter susah hidup (kompresi bocor)",
+                    "Suara desis dari karburator/injector saat mesin hidup",
+                    "Boros BBM karena pembakaran tidak optimal",
+                    "Mesin overheat lebih cepat",
+                    "Asap knalpot putih tipis (seal klep bocor)"
+                ],
+                
+                testMethod: `CARA TEST KLEP:
+1. SETEL CLEARANCE: in 0.10-0.15mm, ex 0.15-0.20mm
+2. KOMPRESI TEST: rendah = klep tidak menutup rapat
+3. LEAK TEST: semprot starter fluid di intake, rpm naik = klep bocor
+4. SUARA: suara tek tek jelas saat mesin dingin`,
+                
+                solution: "Setel klep, ganti seal klep, skir klep jika aus",
+                cost: "Rp 300.000 - Rp 800.000",
+                severity: "Moderate"
+            },
+            
+            // TRANSMISI
+            roller_cvt: {
+                name: "Roller CVT",
+                category: "transmisi",
+                icon: "fas fa-circle",
+                function: "Mengatur perbandingan gigi otomatis di motor matic",
+                commonProblems: "Aus setelah 15.000-25.000km tergantung pemakaian",
+                
+                characteristics: [
+                    "Akselerasi lambat, susah nanjak",
+                    "Suara kasar/berisik dari rumah CVT",
+                    "Getaran berlebihan saat start dari berhenti",
+                    "RPM tinggi tapi motor lambat (slip)",
+                    "Tenaga tidak maksimal terutama boncengan",
+                    "Suara 'grok grok' saat jalan pelan",
+                    "Performa tidak konsisten - kadang bagus kadang jelek"
+                ],
+                
+                testMethod: `CARA TEST ROLLER CVT:
+1. BONGKAR CVT: lihat roller apakah masih bulat
+2. UKUR DIAMETER: bandingkan dengan spesifikasi baru
+3. TEST BERAT: timbang, biasanya 10-15g tergantung motor
+4. PERIKSA AUS: roller tidak bulat/ada bidang rata = aus`,
+                
+                solution: "Ganti roller CVT set (6pcs), bersihkan rumah CVT",
+                cost: "Rp 50.000 - Rp 200.000",
+                severity: "Minor"
+            },
+            
+            vbelt: {
+                name: "V-Belt (Sabuk CVT)",
+                category: "transmisi",
+                icon: "fas fa-broadcast-tower",
+                function: "Mentransfer tenaga dari pulley primer ke sekunder",
+                commonProblems: "Aus/putus setelah 20.000-30.000km",
+                
+                characteristics: [
+                    "Suara berdecit/berisik dari CVT",
+                    "Tenaga tidak tersalurkan maksimal (slip)",
+                    "Akselerasi tidak smooth, tersendat",
+                    "Ada retakan/sobekan di sisi v-belt",
+                    "Motor tiba-tiba tidak bisa jalan (v-belt putus)",
+                    "Panjang v-belt bertambah (terulur)",
+                    "Lebar v-belt menyusut (aus)"
+                ],
+                
+                testMethod: `CARA TEST V-BELT:
+1. BONGKAR CVT: periksa visual retak/sobek
+2. UKUR LEBAR: bandingkan dengan baru (biasanya 20-22mm)
+3. CEK KETEGANGAN: tidak boleh kendur berlebihan
+4. PERIKSA SISI: tidak boleh mengkilap/halus (aus)`,
+                
+                solution: "Ganti v-belt dengan merk original/rekomendasi",
+                cost: "Rp 200.000 - Rp 500.000",
+                severity: "Moderate"
+            },
+            
+            // SISTEM BAHAN BAKAR
+            injector: {
+                name: "Injector (Motor Injeksi)",
+                category: "bahan_bakar",
+                icon: "fas fa-shower",
+                function: "Menyemprotkan bensin ke ruang bakar secara presisi",
+                commonProblems: "Tersumbat kotoran dari bensin berkualitas rendah",
+                
+                characteristics: [
+                    "Motor brebet/ngempos terutama gas awal",
+                    "BBM boros (irit turun 20-40%)",
+                    "Tenaga tidak maksimal, seperti terhambat",
+                    "Idle tidak stabil, kadang mati sendiri",
+                    "Asap knalpot hitam (terlalu kaya bensin)",
+                    "Bau bensin kuat dari knalpot",
+                    "Performa tidak konsisten - kadang bagus setelah digas keras"
+                ],
+                
+                testMethod: `CARA TEST INJECTOR:
+1. CLEANING TEST: dengan ultrasonic cleaner
+2. SPRAY PATTERN: semprotan harus kerucut, bukan menyebar
+3. FLOW TEST: ukur volume bensin per menit
+4. RESISTANCE TEST: normal 10-15 ohm
+5. SOUND TEST: dengarkan suara 'tik tik' saat bekerja`,
+                
+                solution: "Cleaning injector ultrasonic, ganti filter bensin",
+                cost: "Rp 100.000 - Rp 300.000 (cleaning)",
+                severity: "Moderate"
+            },
+            
+            pompa_bensin: {
+                name: "Pompa Bensin (Fuel Pump)",
+                category: "bahan_bakar",
+                icon: "fas fa-gas-pump",
+                function: "Memompa bensin dari tangki ke injector",
+                commonProblems: "Lemah atau mati total, terutama di motor tua",
+                
+                characteristics: [
+                    "Motor tiba-tiba mati saat jalan",
+                    "Starter susah hidup, perlu berkali-kali",
+                    "Tenaga drop tiba-tiba saat digas keras",
+                    "Suara dengung dari tangki bensin lemah/tidak ada",
+                    "Motor bisa hidup beberapa detik lalu mati",
+                    "Performa drop saat bensin hampir habis",
+                    "Bunyi 'klik klik' dari pompa tapi tidak pompa"
+                ],
+                
+                testMethod: `CARA TEST POMPA BENSIN:
+1. DENGARKAN SUARA: hidupkan kontak, harus ada dengung 2-3 detik
+2. TEKANAN TEST: normal 2.5-3 bar untuk injeksi
+3. VOLUME TEST: minimal 1L per menit
+4. ARUS TEST: normal 3-5 ampere
+5. VISUAL: periksa filter di pompa tersumbat`,
+                
+                solution: "Ganti pompa bensin atau bersihkan filternya",
+                cost: "Rp 400.000 - Rp 1.000.000",
+                severity: "Moderate"
+            },
+            
+            // KELISTRIKAN
+            alternator: {
+                name: "Alternator (Spul)",
+                category: "kelistrikan",
+                icon: "fas fa-car-battery",
+                function: "Mengisi aki dan menyuplai listrik ke sistem",
+                commonProblems: "Kumparan putus, diode rusak, magnet lemah",
+                
+                characteristics: [
+                    "Lampu redup saat idle, terang saat gas",
+                    "Aki tekor terus meski diganti baru",
+                    "Motor susah starter terutama pagi hari",
+                    "Horn dan lampu sein lemah",
+                    "Aksesoris listrik mati total",
+                    "Sistem pengapian lemah (busı spark merah)",
+                    "Motor bisa tiba-tiba mati saat lampu dinyalakan"
+                ],
+                
+                testMethod: `CARA TEST ALTERNATOR:
+1. VOLTAGE TEST: hidupkan mesin, ukur voltage aki
+   Normal: 13.5-14.5V, jika <13V = alternator lemah
+2. LOAD TEST: nyalakan lampu jauh, voltage turun <12V = rusak
+3. RESISTANCE TEST: test kumparan dengan multimeter
+4. DIODE TEST: harus satu arah saja`,
+                
+                solution: "Ganti alternator/spul, periksa kabel massa",
+                cost: "Rp 300.000 - Rp 800.000",
+                severity: "Moderate"
+            },
+            
+            regulator_rectifier: {
+                name: "Regulator/Rectifier",
+                category: "kelistrikan",
+                icon: "fas fa-bolt",
+                function: "Mengatur tegangan dan merubah AC ke DC",
+                commonProblems: "Overheat, komponen terbakar, sering rusak",
+                
+                characteristics: [
+                    "Aki sering tekor atau kembung (overcharge)",
+                    "Lampu putus terus meski diganti baru",
+                    "Aksesoris listrik mati atau bekerja tidak normal",
+                    "Motor susah starter terutama setelah jarak jauh",
+                    "Regulator sangat panas saat disentuh",
+                    "Busi cepat mati/aus",
+                    "Suara dengung dari regulator"
+                ],
+                
+                testMethod: `CARA TEST REGULATOR:
+1. VOLTAGE TEST: hidupkan mesin, ukur voltage aki
+   Normal: 13.5-14.5V stabil, jika >15V atau <13V = rusak
+2. HEAT TEST: regulator tidak boleh terlalu panas
+3. VISUAL: periksa kaki-kaki regulator meleleh/terbakar
+4. DIODE TEST: dengan multimeter di mode diode`,
+                
+                solution: "Ganti regulator/rectifier, cek koneksi ground",
+                cost: "Rp 150.000 - Rp 400.000",
+                severity: "Moderate"
+            }
+        };
+        
+        // Fungsi untuk memuat semua komponen
+        function loadAllComponents() {
+            const container = document.getElementById('component-list');
+            container.innerHTML = '';
+            
+            Object.entries(motorComponents).forEach(([key, component]) => {
+                const card = document.createElement('div');
+                card.className = 'component-card';
+                card.dataset.component = key;
+                card.dataset.category = component.category;
+                
+                card.innerHTML = `
+                    <div class="component-header">
+                        <div class="component-icon">
+                            <i class="${component.icon}"></i>
+                        </div>
+                        <div class="component-name">${component.name}</div>
+                    </div>
+                    <div class="common-problems">
+                        <strong>Fungsi:</strong> ${component.function}
+                    </div>
+                    <div class="common-problems">
+                        <strong>Masalah Umum:</strong> ${component.commonProblems}
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <button class="btn-secondary view-details" data-component="${key}">
+                            <i class="fas fa-info-circle"></i> Lihat Ciri-ciri Kerusakan
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+            
+            // Tambah event listener untuk tombol detail
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', function() {
+                    const componentKey = this.getAttribute('data-component');
+                    showComponentDetails(componentKey);
+                });
+            });
+            
+            // Filter komponen berdasarkan kategori
+            document.querySelectorAll('.search-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.search-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-component');
+                    filterComponents(category);
+                });
+            });
+        }
+        
+        // Filter komponen berdasarkan kategori
+        function filterComponents(category) {
+            const allCards = document.querySelectorAll('.component-card');
+            
+            allCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        // Tampilkan detail komponen
+        function showComponentDetails(componentKey) {
+            const component = motorComponents[componentKey];
+            const detailContainer = document.getElementById('component-detail');
+            
+            detailContainer.innerHTML = `
+                <div style="margin-bottom: 30px;">
+                    <button class="btn-secondary" id="back-to-list">
+                        <i class="fas fa-arrow-left"></i> Kembali ke Daftar Komponen
+                    </button>
+                </div>
+                
+                <div class="component-header" style="margin-bottom: 25px;">
+                    <div class="component-icon" style="width: 50px; height: 50px;">
+                        <i class="${component.icon}"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; color: #1a237e;">${component.name}</h3>
+                        <div style="color: #666; margin-top: 5px;">
+                            <strong>Kategori:</strong> ${getCategoryName(component.category)} | 
+                            <strong>Tingkat Keparahan:</strong> ${component.severity}
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                    <div>
+                        <h4><i class="fas fa-info-circle"></i> Fungsi</h4>
+                        <p>${component.function}</p>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-tools"></i> Biaya Perbaikan</h4>
+                        <p>${component.cost}</p>
+                    </div>
+                </div>
+                
+                <div class="characteristics-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Ciri-ciri Kerusakan</h4>
+                    <ul class="characteristics-list">
+                        ${component.characteristics.map(char => `
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>${char}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                
+                <div class="test-method">
+                    <h4><i class="fas fa-vial"></i> Cara Test/Mengecek</h4>
+                    <pre style="white-space: pre-wrap; font-family: inherit; background: white; padding: 15px; border-radius: 5px;">${component.testMethod}</pre>
+                </div>
+                
+                <div class="solution-steps">
+                    <h4><i class="fas fa-wrench"></i> Solusi Perbaikan</h4>
+                    <p>${component.solution}</p>
+                </div>
+                
+                <div class="warning" style="margin-top: 20px;">
+                    <strong><i class="fas fa-clock"></i> Catatan Penting:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Kerusakan ${component.name} termasuk tingkat <strong>${component.severity.toLowerCase()}</strong></li>
+                        <li>Jika mengalami 3 atau lebih ciri-ciri di atas, segera periksakan ke bengkel</li>
+                        <li>Untuk pemula, lakukan test sederhana terlebih dahulu sebelum memutuskan perbaikan</li>
+                        <li>Perbaikan tepat waktu mencegah kerusakan komponen lain</li>
+                    </ul>
+                </div>
+            `;
+            
+            detailContainer.style.display = 'block';
+            document.getElementById('component-list').style.display = 'none';
+            
+            // Scroll ke atas
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Tombol kembali
+            document.getElementById('back-to-list').addEventListener('click', function() {
+                detailContainer.style.display = 'none';
+                document.getElementById('component-list').style.display = 'grid';
+            });
+        }
+        
+        function getCategoryName(category) {
+            const categories = {
+                'sensor': 'Sensor & Elektrik',
+                'mesin': 'Mesin',
+                'transmisi': 'Transmisi',
+                'bahan_bakar': 'Sistem Bahan Bakar',
+                'kelistrikan': 'Kelistrikan'
+            };
+            return categories[category] || category;
+        }
+        
+        // ========== FUNGSI UMUM ==========
+        
+        // Tambah pengingat baru
+        document.getElementById('add-reminder').addEventListener('click', function() {
+            const brand = document.getElementById('motor-brand').value;
+            const model = document.getElementById('motor-model').value;
+            const lastOilChange = document.getElementById('last-oil-change').value;
+            const lastOdometer = document.getElementById('last-odometer').value;
+            const intervalMonths = parseFloat(document.getElementById('interval-months').value);
+            const usageType = document.getElementById('usage-type').value;
+            
+            if (!brand || !model || !lastOilChange || !lastOdometer) {
+                alert('Harap isi semua kolom wajib!');
+                return;
+            }
+            
+            const lastDate = new Date(lastOilChange);
+            const nextDate = calculateNextDate(lastDate, intervalMonths);
+            const daysLeft = calculateDaysLeft(nextDate);
+            
+            let adjustedInterval = intervalMonths;
+            if (usageType === 'heavy' && adjustedInterval > 1) {
+                adjustedInterval = Math.max(adjustedInterval - 0.5, 0.5);
+            } else if (usageType === 'light' && adjustedInterval < 6) {
+                adjustedInterval += 0.5;
+            }
+            
+            const finalInterval = Math.max(adjustedInterval, 0.5);
+            
+            const usageTypeDisplay = {
+                'normal': 'Penggunaan Normal',
+                'heavy': 'Penggunaan Berat',
+                'light': 'Penggunaan Ringan'
+            }[usageType] || usageType;
+            
+            const newReminder = {
+                brand,
+                model,
+                lastOilChange,
+                lastOdometer,
+                intervalMonths: finalInterval,
+                usageType,
+                usageTypeDisplay,
+                id: Date.now()
+            };
+            
+            oilReminders.push(newReminder);
+            localStorage.setItem('oilReminders', JSON.stringify(oilReminders));
+            
+            document.getElementById('motor-brand').value = '';
+            document.getElementById('motor-model').value = '';
+            document.getElementById('last-odometer').value = '';
+            
+            displayReminders();
+            
+            const adjustedNextDate = calculateNextDate(lastDate, finalInterval);
+            const adjustedDaysLeft = calculateDaysLeft(adjustedNextDate);
+            
+            alert(`Pengingat berhasil ditambahkan!\n\nAnda memilih ganti oli setiap ${formatMonth(intervalMonths)}.\nSisa waktu: ${adjustedDaysLeft} hari\nGanti oli berikutnya: ${formatDate(adjustedNextDate)}`);
+        });
+        
+        // Tandai pengingat sebagai selesai
+        function markReminderDone(index) {
+            const newLastOilChange = new Date().toISOString().split('T')[0];
+            oilReminders[index].lastOilChange = newLastOilChange;
+            
+            const newOdometer = prompt('Masukkan KM saat ini:', oilReminders[index].lastOdometer);
+            if (newOdometer) {
+                oilReminders[index].lastOdometer = newOdometer;
+            }
+            
+            localStorage.setItem('oilReminders', JSON.stringify(oilReminders));
+            displayReminders();
+            
+            const lastDate = new Date(newLastOilChange);
+            const nextDate = calculateNextDate(lastDate, oilReminders[index].intervalMonths);
+            const daysLeft = calculateDaysLeft(nextDate);
+            
+            alert(`Pengingat diperbarui! Ganti oli telah dicatat.\n\nGanti oli berikutnya: ${formatDate(nextDate)}\nSisa waktu: ${daysLeft} hari`);
+        }
+        
+        // Edit pengingat
+        function editReminder(index) {
+            const reminder = oilReminders[index];
+            
+            document.getElementById('motor-brand').value = reminder.brand;
+            document.getElementById('motor-model').value = reminder.model;
+            document.getElementById('last-oil-change').value = reminder.lastOilChange;
+            document.getElementById('last-odometer').value = reminder.lastOdometer;
+            document.getElementById('interval-months').value = reminder.intervalMonths;
+            document.getElementById('usage-type').value = reminder.usageType;
+            
+            document.querySelectorAll('.interval-btn').forEach(btn => {
+                btn.classList.remove('selected');
+                if (parseFloat(btn.getAttribute('data-months')) === reminder.intervalMonths) {
+                    btn.classList.add('selected');
+                }
+            });
+            
+            oilReminders.splice(index, 1);
+            localStorage.setItem('oilReminders', JSON.stringify(oilReminders));
+            displayReminders();
+            
+            alert('Edit data pengingat. Silahkan perbarui data dan tekan "Tambah Pengingat" untuk menyimpan perubahan.');
+        }
+        
+        // Hapus pengingat
+        function deleteReminder(index) {
+            if (confirm('Apakah Anda yakin ingin menghapus pengingat ini?')) {
+                oilReminders.splice(index, 1);
+                localStorage.setItem('oilReminders', JSON.stringify(oilReminders));
+                displayReminders();
+            }
+        }
+        
+        // Gunakan preset racikan kirian
+        document.querySelectorAll('.use-preset').forEach(button => {
+            button.addEventListener('click', function() {
+                const preset = this.getAttribute('data-preset');
+                
+                if (preset === 'haria-loler') {
+                    document.getElementById('custom-loler').value = 11;
+                    document.getElementById('custom-rumah-loler').value = 13.5;
+                    document.getElementById('custom-centri').value = 1100;
+                    document.getElementById('custom-cvt').value = 1500;
+                } else if (preset === 'harian-gerung') {
+                    document.getElementById('custom-loler').value = 8;
+                    document.getElementById('custom-rumah-loler').value = 13.8;
+                    document.getElementById('custom-centri').value = 1100;
+                    document.getElementById('custom-cvt').value = 1500;
+                } else if (preset === 'harian-jengat') {
+                    document.getElementById('custom-loler').value = 9;
+                    document.getElementById('custom-centri').value = 1000;
+                    document.getElementById('custom-cvt').value = 1000;
+                }
+                
+                calculateCustomKirian();
+                document.getElementById('custom-result').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Hitung dan rekomendasikan racikan custom
+        document.getElementById('calculate-custom').addEventListener('click', calculateCustomKirian);
+        
+        function calculateCustomKirian() {
+            const loler = parseFloat(document.getElementById('custom-loler').value) || 0;
+            const rumahLoler = parseFloat(document.getElementById('custom-rumah-loler').value) || 0;
+            const centri = parseInt(document.getElementById('custom-centri').value) || 0;
+            const cvt = parseInt(document.getElementById('custom-cvt').value) || 0;
+            const ridingStyle = document.getElementById('riding-style').value;
+            const motorType = document.getElementById('kirian-motor-type').value;
+            
+            if (loler === 0 || centri === 0 || cvt === 0) {
+                alert('Harap isi setidaknya berat loler, centri, dan CVT!');
+                return;
+            }
+            
+            document.getElementById('result-loler').innerHTML = `<strong>${loler} gram</strong>`;
+            document.getElementById('result-rumah-loler').innerHTML = `<strong>${rumahLoler > 0 ? rumahLoler + ' drajat' : 'Tidak diatur'}</strong>`;
+            document.getElementById('result-centri').innerHTML = `<strong>${centri} RPM</strong>`;
+            document.getElementById('result-cvt').innerHTML = `<strong>${cvt} RPM</strong>`;
+            
+            let recommendation = '';
+            
+            if (loler >= 10) {
+                recommendation += 'Racikan dengan loler berat (≥10g) cocok untuk touring jarak jauh dan menahan RPM di putaran atas. ';
+            } else if (loler >= 8) {
+                recommendation += 'Racikan dengan loler sedang (8-9.5g) cocok untuk harian dengan akselerasi seimbang. ';
+            } else {
+                recommendation += 'Racikan dengan loler ringan (<8g) cocok untuk akselerasi cepat di putaran bawah, ideal untuk dalam kota. ';
+            }
+            
+            if (centri >= 1200 && cvt >= 1500) {
+                recommendation += 'Setting RPM tinggi cocok untuk performa maksimal dengan top speed tinggi. ';
+            } else if (centri <= 1000 && cvt <= 1200) {
+                recommendation += 'Setting RPM rendah cocok untuk irit BBM dan akselerasi halus. ';
+            } else {
+                recommendation += 'Setting RPM seimbang cocok untuk penggunaan harian dengan performa all-round. ';
+            }
+            
+            if (ridingStyle === 'daily') {
+                recommendation += 'Cocok untuk penggunaan harian dengan kenyamanan dan efisiensi bahan bakar.';
+            } else if (ridingStyle === 'sport') {
+                recommendation += 'Cocok untuk pengendara sporty yang mengutamakan akselerasi dan responsivitas.';
+            } else if (ridingStyle === 'eco') {
+                recommendation += 'Cocok untuk pengendara yang mengutamakan efisiensi bahan bakar.';
+            } else if (ridingStyle === 'offroad') {
+                recommendation += 'Cocok untuk medan berat dan tanjakan dengan torsi di putaran bawah.';
+            }
+            
+            if (motorType === 'matic') {
+                recommendation += ' Dioptimalkan untuk motor matic dengan transmisi CVT.';
+            } else if (motorType === 'sport') {
+                recommendation += ' Dioptimalkan untuk motor sport dengan performa tinggi.';
+            }
+            
+            document.getElementById('recommendation-text').textContent = recommendation;
+            document.getElementById('custom-result').style.display = 'block';
+        }
+        
+        // Inisialisasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            displayReminders();
+            
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('last-oil-change').value = today;
+            document.getElementById('last-odometer').value = '0';
+            
+            // Load komponen jika di section ciri-ciri
+            if (document.getElementById('motor-characteristics').classList.contains('active')) {
+                loadAllComponents();
+            }
+        });
+    </script>
+</body>
+</html>
